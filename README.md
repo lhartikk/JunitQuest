@@ -2,6 +2,47 @@
 
 Automatically generate (useless?) unit tests for Java.
 
+Input:
+```java
+public class MyService {
+
+    public String getStatusString(int code) {
+        if (code == 200) {
+            return "OK";
+        } else if (code == 404) {
+            return "NOT FOUND";
+        } else {
+            return "UNKNOWN";
+        }
+    }
+}
+```
+
+Output:
+```java
+ @Test
+  public void getStatusStringTest0() throws Exception {    
+    int var2 = 0;        
+    org.hello.MyService var3 = new org.hello.MyService();
+    var3.getStatusString(var2);
+  }
+
+  @Test
+  public void getStatusStringTest1() throws Exception {    
+    int var2 = 200;        
+    org.hello.MyService var3 = new org.hello.MyService();
+    var3.getStatusString(var2);
+  }
+
+  @Test
+  public void getStatusStringTest2() throws Exception {    
+    int var2 = 404;        
+    org.hello.MyService var3 = new org.hello.MyService();
+    var3.getStatusString(var2);
+  }
+```
+
+
 ## Motivation
 
 I feel in software development it's easy to put too much emphasis on unit testing. Especially in Java, where measuring code coverage is super-easy, further giving motivation to write large sets of unit tests. JunitQuest tries to undermine/provoke discussion about unit tests by automatically creating tests that actually test nothing, but still quests through your codebase. Just like bad unit tests do.
