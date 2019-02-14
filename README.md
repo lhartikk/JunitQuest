@@ -2,7 +2,7 @@
 
 Automatically generate (useless?) unit tests for Java.
 
-Input:
+Example input:
 ```java
 public class MyService {
 
